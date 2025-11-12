@@ -24,13 +24,39 @@ let pokeArr = [];
     pokeArr = await Promise.all(promiseArr);
 
     // ...and render page if pokeArr is filled
-    createPage();
+    createPage(pokeArr);
   } catch (error) {
     console.error(error);
   }
 })();
 
 /* SCHEDULE ===============================*/
-function createPage() {
+function createPage(pokeArr) {
+  pokeArr.forEach((element) => {
+    createCard(element);
+  });
+}
+
+function createCard(data) {
   console.log('POKEMON DATA loaded:', pokeArr);
+  const pokeContainer = document.querySelector('#pokemon-container');
+  const html = `
+         <article class="bg-teal-900 text-stone-100 flex flex-col items-center rounded-xl shadow">
+          <img src="${data.sprites.front_shiny}" alt="">
+          <h2 class="font-semibold capitalize">${data.name}</h2>
+          <div class="flex gap-2 items-center justify-between w-full px-3">
+            <label for="hp">HP</label>
+            <meter value="${data.stats[0].base_stat}" max="100" id="hp">HP</meter>
+          </div>
+          <div class="flex gap-2 items-center justify-between w-full px-3">
+            <label for="attack">Attack</label>
+            <meter class="[&::-webkit-meter-optimum-value]:bg-red-500" value="${data.stats[1].base_stat}" max="100" id="attack">Attack</meter>
+          </div>
+          <div class="flex gap-2 items-center justify-between w-full px-3 pb-3">
+            <label for="defense">Defense</label>
+            <meter class="[&::-webkit-meter-optimum-value]:bg-blue-500" value="${data.stats[2].base_stat}" max="100"
+              id="defense">Defense</meter>
+          </div>
+        </article>`;
+  pokeContainer.insertAdjacentHTML('beforeend', html);
 }

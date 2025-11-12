@@ -36,13 +36,31 @@
       }
     </style>
   </head>
-  <body class="bg-poke-gray-light">
-    <header>
-      <i class="icon font-icons">&#xf0c9;</i>
-      <i class="icon font-icons">&#xe800;</i>
-      <i class="icon font-icons">&#xe803;</i>
-    </header>
-    <main></main>
-    <footer></footer>
+  <body class="bg-poke-gray-light min-h-screen flex flex-col">
+    <div
+      id="wrapper"
+      class="max-w-[1440px] w-full mx-auto flex flex-col min-h-screen"
+    >
+      <header class="h-20 w-full">
+        <i class="icon font-icons">&#xf0c9;</i>
+        <i class="icon font-icons">&#xe800;</i>
+        <i class="icon font-icons">&#xe803;</i>
+      </header>
+
+      <main class="flex-grow">
+        <div
+          id="pokemon-container"
+          class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-4"
+        >
+          <!-- Pokémon cards will be populated here -->
+        </div>
+      </main>
+
+      <footer class="bg-poke-gray-dark h-15 w-full">
+        <div id="footer-container">
+          <!-- footer content here -->
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
