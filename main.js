@@ -48,7 +48,6 @@ function createPage(pokeArr) {
 
 function deleteBtnClicked(e) {
   console.log('delete button clicked');
-  console.log('catch button clicked');
   const pokeId = pokeIdFromEvent(e);
   catchBtnFromPokeId(pokeId).hidden = false;
   deleteBtnFromPokeId(pokeId).hidden = true;

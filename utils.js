@@ -44,16 +44,6 @@ export function createCard(data, isStored = false) {
   pokeContainer.insertAdjacentHTML('beforeend', html);
 }
 
-export function catchBtnFromPokemon(pokemon) {
-  const catchBtn = e.target.id.startsWith(pfxCatch)
-    ? e.target
-    : e.target.parentElement;
-  const id = catchBtn.id.split('-').pop();
-  const deleteBtn = document.querySelector(`#${pfxDelete}${id}`);
-  catchBtn.hidden = true;
-  deleteBtn.hidden = false;
-}
-
 export function catchBtnFromPokeId(pokeId) {
   return btnFromPokeId(pokeId, pfxCatch);
 }
