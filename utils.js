@@ -21,21 +21,21 @@ export function createCard(data, isStored = false) {
               <img src="./assets/icons/pokeball.png">
             </button>
           </div>
-          <div class="flex md:flex-col justify-evenly gap-2">
-            <img class="grow-1" src="${data.sprites.front_shiny}" alt="">
-            <div class="flex flex-col grow-4 justify-center">
-              <h2 class="font-semibold capitalize text-center mb-4">${data.name}</h2>
+          <div class="flex md:flex-col gap-2 h-full">
+            <img class="grow-1 p-10 max-w-1/4 min-w-[10rem] scale-100 md:max-w-2/3 lg:max-h-2/3 mx-auto" src="${data.sprites.other.dream_world.front_default}" alt="">
+            <div class="flex flex-col grow justify-center max-w-2/3 md:max-w-full px-5 lg:p-2">
+              <h2 class="font-semibold capitalize text-center mb-4 text-lg">${data.name}</h2>
               <div class="flex gap-2 items-center justify-between w-full px-3">
                 <label for="hp">HP</label>
-                <meter class="bg-poke-yellow" value="${data.stats[0].base_stat}" max="100" id="hp">HP</meter>
+                <meter class="bg-poke-yellow w-[40%] sm:w-[70%] md:w-[60%] lg:w-[40%]" value="${data.stats[0].base_stat}" max="100" id="hp">HP</meter>
               </div>
               <div class="flex gap-2 items-center justify-between w-full px-3">
                 <label for="attack">Attack</label>
-                <meter class="bg-poke-red" value="${data.stats[1].base_stat}" max="100" id="attack">Attack</meter>
+                <meter class="bg-poke-red w-[40%] sm:w-[70%] md:w-[60%] lg:w-[40%]" value="${data.stats[1].base_stat}" max="100" id="attack">Attack</meter>
               </div>
               <div class="flex gap-2 items-center justify-between w-full px-3 pb-3">
                 <label for="defense">Defense</label>
-                <meter class="bg-poke-blue" value="${data.stats[2].base_stat}" max="100"
+                <meter class="bg-poke-blue w-[40%] sm:w-[70%] md:w-[60%] lg:w-[40%]" value="${data.stats[2].base_stat}" max="100"
                   id="defense">Defense</meter>
               </div>
             </div>
