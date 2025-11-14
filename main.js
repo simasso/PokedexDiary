@@ -13,7 +13,7 @@ import {
 import { Pokemon, storePokemon, deletePokemon, isStored } from './storeage.js';
 
 const URL = 'https://pokeapi.co/api/v2/pokemon/';
-const numberToFetch = 10;
+const numberToFetch = 25;
 
 let pokeArr = [];
 
@@ -69,7 +69,6 @@ function createGrid(pokeArr) {
 }
 
 function deleteBtnClicked(e) {
-  console.log('delete button clicked');
   const pokeId = pokeIdFromEvent(e);
   catchBtnFromPokeId(pokeId).hidden = false;
   deleteBtnFromPokeId(pokeId).hidden = true;
@@ -77,7 +76,6 @@ function deleteBtnClicked(e) {
 }
 
 async function catchBtnClicked(e) {
-  console.log('catch button clicked');
   const pokeId = pokeIdFromEvent(e);
   catchBtnFromPokeId(pokeId).hidden = true;
   deleteBtnFromPokeId(pokeId).hidden = false;

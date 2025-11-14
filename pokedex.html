@@ -109,7 +109,7 @@
 
       <aside
         id="dialog-container"
-        class="bg-[rgba(255,255,255,0.6)] absolute bottom-0 w-full h-full flex justify-center items-center z-100"
+        class="hidden bg-[rgba(255,255,255,0.6)] absolute bottom-0 w-full h-full flex justify-center items-center z-100"
       >
         <dialog
           open
@@ -122,26 +122,29 @@
             <div class="flex justify-between">
               <label
                 for="note-text"
-                class="text-lg font-semibold text-gray-700"
+                class="text-2xl font-semibold text-gray-700"
               >
-                Notes for <span>PLATZHALTER</span>
+                Notes for
+                <span id="note-name" class="capitalize font-mono"
+                  >PLATZHALTER</span
+                >
               </label>
               <i
-                id="menu-c"
+                id="btn-close-note"
                 class="icon font-icons text-white bg-poke-red rounded-full px-2 cursor-pointer"
                 >&#xe801;</i
               >
             </div>
 
             <textarea
-              id="note-text"
+              id="note-area"
               name="note-text"
               class="w-full h-full p-3 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300 resize-none placeholder:italic"
               placeholder="Your notes here..."
             ></textarea>
 
             <button
-              id="btnNote"
+              id="btn-save-note"
               class="self-end bg-poke-green text-black w-full px-6 py-2 rounded-lg cursor-pointer"
             >
               Save
