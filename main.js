@@ -3,6 +3,11 @@ import {
   pokeIdFromEvent,
   catchBtnFromPokeId,
   deleteBtnFromPokeId,
+  menuOpen,
+  menuClose,
+  toggleMenu,
+  searchInput,
+  getSearchResults,
 } from './utils.js';
 
 import { Pokemon, storePokemon, deletePokemon, isStored } from './storeage.js';
@@ -33,6 +38,18 @@ let pokeArr = [];
     console.error(error);
   }
 })();
+
+searchInput.addEventListener('input', (e) => {
+  getSearchResults(e, pokeArr);
+});
+
+menuOpen.addEventListener('click', (e) => {
+  toggleMenu(e);
+});
+
+menuClose.addEventListener('click', (e) => {
+  toggleMenu(e);
+});
 
 function fetchPokemon(id) {
   return fetch(`${URL}${id}`).then((res) => {

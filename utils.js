@@ -2,6 +2,10 @@ const pfxCatch = 'catch-';
 const pfxDelete = 'delete-';
 const pfxNotes = 'notes-';
 const pfxArticle = 'article-';
+export const menuOpen = document.querySelector('#menu-o');
+export const menuClose = document.querySelector('#menu-c');
+export const searchInput = document.querySelector('#search');
+export const searchContainer = document.querySelector('#search-container');
 
 export function createCard(pokemon, isStored = false) {
   const catchBtnVisibility = isStored ? 'hidden' : '';
@@ -66,4 +70,56 @@ function btnFromPokeId(pokeId, prefix) {
 export function pokeIdFromEvent(e) {
   const element = e.target.closest('button') ?? e.target.closest('article');
   return element.id.split('-').pop();
+}
+
+export function getSearchResults(e, cardArray) {
+  let errorContainer = document.querySelector('.error');
+  const query = searchInput.value.toLowerCase();
+  if (query === '') {
+    const cards = document.querySelectorAll('article');
+    cards.forEach((card) => {
+      card.classList.remove('hidden');
+      if (errorContainer) {
+        errorContainer.remove();
+      }
+    });
+  } else {
+    let cardFound = false;
+    cardArray.forEach((item) => {
+      const card = document.querySelector(`#article-${item.id}`);
+      if (!item.name.toLowerCase().includes(query)) {
+        card.classList.add('hidden');
+      } else {
+        cardFound = true;
+        card.classList.remove('hidden');
+        if (errorContainer) {
+          errorContainer.remove();
+        }
+      }
+    });
+    if (cardFound === false) {
+      if (!errorContainer) {
+        errorContainer = document.createElement('div');
+        errorContainer.textContent = 'Keine Pokemons gefunden';
+        errorContainer.classList.add(
+          'error',
+          'text-poke-red',
+          'text-center',
+          'text-2xl'
+        );
+        const mainContainer = document.querySelector('main');
+        mainContainer.prepend(errorContainer);
+      }
+    }
+  }
+}
+
+export function toggleMenu(e) {
+  menuOpen.classList.toggle('hidden');
+  menuClose.classList.toggle('hidden');
+  if (e.target.id === 'menu-c') {
+    searchContainer.classList.add('hidden');
+  } else if (e.target.id === 'menu-o') {
+    searchContainer.classList.remove('hidden');
+  }
 }
