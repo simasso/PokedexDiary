@@ -8,7 +8,7 @@ import {
   getSearchResults,
 } from './utils.js';
 
-import { storePokemon, deletePokemon } from './storeage.js';
+import { Pokemon, storePokemon, deletePokemon, isStored } from './storeage.js';
 
 const URL = 'https://pokeapi.co/api/v2/pokemon/';
 const numberToFetch = 10;
@@ -31,7 +31,7 @@ let pokeArr = [];
     pokeArr = await Promise.all(promiseArr);
 
     // ...and render page if pokeArr is filled
-    createPage(pokeArr);
+    createGrid(pokeArr);
   } catch (error) {
     console.error(error);
   }
@@ -53,9 +53,10 @@ function fetchPokemon(id) {
 }
 
 /* SCHEDULE ===============================*/
-function createPage(pokeArr) {
-  pokeArr.forEach((pokemon) => {
-    createCard(pokemon);
+function createGrid(pokeArr) {
+  pokeArr.forEach((data) => {
+    const pokemon = new Pokemon(data);
+    createCard(pokemon, isStored(pokemon.id));
     catchBtnFromPokeId(pokemon.id).onclick = catchBtnClicked;
     deleteBtnFromPokeId(pokemon.id).onclick = deleteBtnClicked;
   });
