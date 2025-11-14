@@ -1,5 +1,6 @@
 const POKEMONS = 'Pokemons';
-class Pokemon {
+
+export class Pokemon {
   id;
   name;
   img;
@@ -8,10 +9,9 @@ class Pokemon {
   defense;
   notes;
   constructor(data, notes = '') {
-    console.log(data);
     this.id = data.id;
     this.name = data.name;
-    this.img = data.sprites.front_shiny;
+    this.img = data.sprites.other.dream_world.front_default;
     this.hp = data.stats[0].base_stat;
     this.attack = data.stats[0].base_stat;
     this.defense = data.stats[0].base_stat;
@@ -26,11 +26,19 @@ export function storePokemon(data) {
 }
 
 export function deletePokemon(id) {
-  const pokemons = loadStoreage().filter((pokemon) => pokemon.id != id);
+  console.log(id);
+  let pokemons = loadStoreage();
+  console.log(pokemons);
+  pokemons = pokemons.filter((pokemon) => pokemon.id != id);
+  console.log(pokemons);
   writeStoreage(pokemons);
 }
 
-function loadStoreage() {
+export function isStored(id) {
+  return loadStoreage().find((pokemon) => pokemon.id == id);
+}
+
+export function loadStoreage() {
   return JSON.parse(localStorage.getItem(POKEMONS)) ?? [];
 }
 
