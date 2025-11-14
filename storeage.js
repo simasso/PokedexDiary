@@ -11,7 +11,7 @@ class Pokemon {
     console.log(data);
     this.id = data.id;
     this.name = data.name;
-    this.img = data.sprites.front_shiny;
+    this.img = data.sprites.other.dream_world.front_default;
     this.hp = data.stats[0].base_stat;
     this.attack = data.stats[0].base_stat;
     this.defense = data.stats[0].base_stat;
