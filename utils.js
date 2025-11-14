@@ -17,7 +17,7 @@ export function createCard(data, isStored = false) {
             <button id="${pfxDelete}${data.id}" class="w-7 mt-1 me-1 hover:cursor-pointer hover:outline-2 rounded-full flex justify-center" ${deleteBtnVisibility}>
               <img class="bg-white rounded-full" src="./assets/icons/delete.png">
             </button>
-            <button id="${pfxCatch}${data.id}" class="w-7 mt-1 me-1 hover:cursor-pointer hover:outline-2 rounded-full flex justify-center" ${catchBtnVisibility}>
+            <button id="${pfxCatch}${data.id}" class="w-7 mt-1 me-1 hover:cursor-pointer hover:outline-2 rounded-full flex justify-center hover:animate-spin" ${catchBtnVisibility}>
               <img src="./assets/icons/pokeball.png">
             </button>
           </div>
