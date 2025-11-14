@@ -8,11 +8,10 @@ import {
 
 import { loadStoreage, deletePokemon } from './storeage.js';
 
-const favourites = loadStoreage();
-
 showFavourites();
 
 function showFavourites() {
+  const favourites = loadStoreage();
   document.querySelector('#pokemon-container').textContent = '';
   favourites.forEach((pokemon) => {
     const isStored = true;
@@ -28,7 +27,7 @@ function deleteBtnClicked(e) {
   console.log('delete button clicked');
   const pokeId = pokeIdFromEvent(e);
   deletePokemon(pokeId);
-  window.location.reload();
+  showFavourites();
 }
 
 async function notesBtnClicked(e) {
