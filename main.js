@@ -88,7 +88,6 @@ async function catchBtnClicked(e) {
   const pokeId = pokeIdFromEvent(e);
   catchBtnFromPokeId(pokeId).hidden = true;
   deleteBtnFromPokeId(pokeId).hidden = false;
-  //storePokemon(await fetchPokemon(pokeId));
   fetchPokemon(pokeId).then((pokemonData) => {
     storePokemon(pokemonData);
     setFavouriteIconColor();
