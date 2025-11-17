@@ -27,7 +27,7 @@ export function storePokemon(data) {
 
 export function deletePokemon(id) {
   let pokemons = loadStorage();
-  pokemons = pokemons.filter((pokemon) => pokemon.id != id);
+  pokemons = pokemons.filter((pokemon) => pokemon.id !== id);
   pokemons.length > 0
     ? writeStorage(pokemons)
     : localStorage.removeItem(POKEMONS);
