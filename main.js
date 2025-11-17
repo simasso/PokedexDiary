@@ -8,15 +8,15 @@ import {
   toggleMenu,
   searchInput,
   getSearchResults,
-} from './utils.js';
+} from './ui.js';
 
 import {
   Pokemon,
   storePokemon,
   deletePokemon,
   isStored,
-  loadStoreage,
-} from './storeage.js';
+  loadStorage,
+} from './storage.js';
 
 const URL = 'https://pokeapi.co/api/v2/pokemon/';
 const numberToFetch = 25;
@@ -96,7 +96,7 @@ async function catchBtnClicked(e) {
 }
 
 function setFavouriteIconColor() {
-  const storedPokemon = loadStoreage();
+  const storedPokemon = loadStorage();
   if (storedPokemon.length > 0) {
     favouriteHeaderIcon.classList.add('text-poke-red');
     favouriteHeaderIcon.classList.remove('text-white');
