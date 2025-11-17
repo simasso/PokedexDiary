@@ -109,11 +109,11 @@
 
       <aside
         id="dialog-container"
-        class="hidden bg-[rgba(255,255,255,0.6)] absolute bottom-0 w-full h-full flex justify-center items-center z-100"
+        class="hidden bg-[rgba(255,255,255,0.5)] absolute top-0 left-0 w-full h-full z-100 flex justify-center items-center"
       >
         <dialog
           open
-          class="m-auto w-[90%] h-[70%] md:w-[60%] p-6 rounded shadow-xl bg-white border-3 border-poke-gray-light"
+          class="m-auto w-[90%] h-[70%] md:w-[60%] max-w-[1200px] p-6 rounded shadow-xl bg-white border-3 border-poke-gray-light"
         >
           <form
             id="note-form"
@@ -122,7 +122,7 @@
             <div class="flex justify-between">
               <label
                 for="note-text"
-                class="text-2xl font-semibold text-gray-700"
+                class="text-xl lg:text-2xl font-semibold text-gray-700"
               >
                 Notes for
                 <span id="note-name" class="capitalize font-mono"
