@@ -8,9 +8,9 @@ import {
   toggleMenu,
   searchInput,
   getSearchResults,
-} from './ui.js';
+} from './modules/ui.js';
 
-import { loadStorage, writeStorage, deletePokemon } from './storage.js';
+import { loadStorage, writeStorage, deletePokemon } from './modules/storage.js';
 
 const note = document.querySelector('#dialog-container');
 const noteName = document.querySelector('#note-name');

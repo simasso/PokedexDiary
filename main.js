@@ -8,7 +8,7 @@ import {
   toggleMenu,
   searchInput,
   getSearchResults,
-} from './ui.js';
+} from './modules/ui.js';
 
 import {
   Pokemon,
@@ -16,7 +16,7 @@ import {
   deletePokemon,
   isStored,
   loadStorage,
-} from './storage.js';
+} from './modules/storage.js';
 
 const URL = 'https://pokeapi.co/api/v2/pokemon/';
 const numberToFetch = 25;
